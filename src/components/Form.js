@@ -2,12 +2,16 @@ import React, { useContext , useState }  from 'react'
 import MovieContext from "../contexts/MovieContext"
 import "./styles/form.css"
 
-const configUrl = "http://localhost:3001";
+const configUrl = "https://imbt-app-server.rj.r.appspot.com/configAPI";
+
 
 const postConfigFetch = async (data) => {
-		const response = await fetch(configUrl,{method: 'POST', body: JSON.stringify(data)} );
+        console.log("teste" + data)
+		const response = await fetch(configUrl,{method: 'POST', headers: {
+      'Content-Type': 'application/json'
+    }, body: JSON.stringify(data)} );
 		const jsonData = await response.json();
-		console.log("enviei: " + jsonData)
+    
 	};
 
 const Form = () => {
@@ -38,6 +42,7 @@ const Form = () => {
                 reservas: [...config.reservas,nova_reserva]
             }
             context.changeState(new_object)
+            console.log("enviando: " + JSON.stringify(new_object))
             postConfigFetch(new_object)
             console.log(new_object)
         }

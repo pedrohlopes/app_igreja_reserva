@@ -14,7 +14,7 @@ import MovieContext from './contexts/MovieContext'
 
 let start_config = require("./data/config.json")
 
-const configUrl = "http://localhost:3001";
+const configUrl = "https://imbt-app-server.rj.r.appspot.com/configAPI";
 
 
 // console.log(pre_config.ocupados)
