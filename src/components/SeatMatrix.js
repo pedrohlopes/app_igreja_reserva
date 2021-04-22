@@ -54,6 +54,8 @@ const SeatMatrix = () => {
 					{GenerateSeats([93, 94, 95, 96])}
 					<div className="row"> <br/></div>
 					<div className="row"><br/> </div>
+					<div className="row"><br /> </div>
+					<div className="row"><br /> </div>
 					<div className="row"><br/> </div>
 					{GenerateSeats([93, 94, 95, 96])}
 				</div>
