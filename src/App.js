@@ -23,7 +23,9 @@ const App = () => {
 		url: 'https://jsonbin.org/pedrohlopes/configAPI/Quinta',
 		dias: ["Quinta 22/04", "Domingo 25/04", "Terça 27/04"],
 		diaAtual: "Quinta 22/04",
-		totalSeats: 0,
+		totalSeats: 142,
+		totalSelected: 0,
+		totalOcupados:0,
 		ocupados: [],
 		seatNumbers:[]
 	});

@@ -25,11 +25,11 @@ const Seat = (props) => {
             })
             seatColor.remove("seat-black")
             seatColor.add("seat-grey")
-            context.changeState({...config, seatNumbers: newMovieSeats, totalSeats: config.totalSeats-1 })
+            context.changeState({...config, seatNumbers: newMovieSeats, totalSelected: config.totalSelected-1 })
         } else {
             seatColor.remove("seat-grey")
             seatColor.add("seat-black")
-            context.changeState({...config, seatNumbers: [...config.seatNumbers, seatNumber], totalSeats: config.totalSeats+1 })
+            context.changeState({...config, seatNumbers: [...config.seatNumbers, seatNumber], totalSelected: config.totalSelected+1 })
         }
     }
 

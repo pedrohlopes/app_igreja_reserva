@@ -44,7 +44,7 @@ const Form = () => {
         e.preventDefault();
         console.log(e)
         console.log(`Form submitted, ${nome} ${sobrenome}`);
-        if (config.totalSeats>0 && nome && sobrenome) {
+        if (config.totalSelected>0 && nome && sobrenome) {
             nova_reserva = {
                 Responsavel: nome + ' ' + sobrenome,
                 Assentos: config.seatNumbers,
@@ -54,7 +54,8 @@ const Form = () => {
                 ...config,
                 ocupados: [...config.ocupados.concat(config.seatNumbers)],
                 seatNumbers: [],
-                totalSeats: 0,
+                totalSelected: 0,
+                totalOcupados: config.totalOcupados+config.totalSelected,
                 reservas: [...config.reservas, nova_reserva]
             };
             context.changeState(new_object);
