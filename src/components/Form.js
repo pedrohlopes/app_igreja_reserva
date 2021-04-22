@@ -19,7 +19,12 @@ const postConfigFetch = async (data,url) => {
     
 	};
 
-
+const format_number = (number) => {
+    let out = '';
+    out = String(number.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false }));
+    console.log(out);
+    return out;
+}
 
 const Form = () => {
     const { config } = useContext(MovieContext)
@@ -27,6 +32,7 @@ const Form = () => {
     let new_object = []
     const [nome, setName] = useState('');
     const [sobrenome, setName2] = useState('');
+    const [submitted, setSubmit] = useState(false);
     var d = new Date()
     let nova_reserva = {}
     const {
@@ -42,7 +48,7 @@ const Form = () => {
             nova_reserva = {
                 Responsavel: nome + ' ' + sobrenome,
                 Assentos: config.seatNumbers,
-                Data: String(d.getDate()) + '/' + String(d.getMonth()) + '/' + String(d.getFullYear()) + '-' + String(d.getHours()) + ':' + String(d.getMinutes()) + ':' + String(d.getSeconds())
+                Data: format_number(d.getDate()) + '/' + format_number(d.getMonth() + 1) + '/' + format_number(d.getFullYear()) + '-' + format_number(d.getHours()) + ':' + format_number(d.getMinutes()) + ':' + format_number(d.getSeconds())
             };
             new_object = {
                 ...config,
@@ -55,6 +61,9 @@ const Form = () => {
             console.log("enviando: " + JSON.stringify(new_object));
             postConfigFetch(new_object,config.url);
             console.log(new_object);
+            setName('');
+            setName2('');
+            setSubmit(true);
         }
         
 
@@ -69,10 +78,14 @@ const Form = () => {
                 <li>
                     <input type="submit" value="Reservar!" className="submitButton" />
                 </li>
-            </ul>
-             {formState.isSubmitted && (
-                <div className="success">Form submitted successfully</div>
+                
+                {submitted && (
+                <div className="success">
+                    <li>Reserva realizada com sucesso! Bom culto!</li>
+                </div>
                 )}
+            </ul>
+             
         </form>
     );
     

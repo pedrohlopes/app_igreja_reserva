@@ -56,7 +56,7 @@ const SeatMatrix = () => {
 					<div className="row"><br/> </div>
 					<div className="row"><br /> </div>
 					<div className="row"><br /> </div>
-					<div className="row"><br/> </div>
+					<div className="row"><br /> </div>
 					{GenerateSeats([93, 94, 95, 96])}
 				</div>
 				<div className="movie-column-4">
