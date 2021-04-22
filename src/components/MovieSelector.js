@@ -25,6 +25,12 @@ const Header = () => {
 	const movieSwitchHandler = (e) => {
 		console.log(e.target.value)
 		let newDiaUrl = e.target.value
+		config.seatNumbers.forEach(element => {
+			const seatColor = document.querySelector(`.seat-${element}`).classList
+			seatColor.remove("seat-black")
+            seatColor.add("seat-grey")
+		});
+		movieData.changeState({ ...config, seatNumbers: [] })
 		newDiaUrl = base_url + newDiaUrl.split(" ")[0]
 		getConfigFetch(newDiaUrl, movieData);
 	}

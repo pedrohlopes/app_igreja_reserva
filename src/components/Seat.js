@@ -8,19 +8,20 @@ const Seat = (props) => {
     const context = useContext(MovieContext)
 
     const seatNumber = props.seatno
-    const init_color = config.ocupados.includes(seatNumber) ? "seat-red":"seat-grey"
 
-    const seatStatus = props.seatColor ? props.seatColor : init_color
+    const init_color = config.ocupados.includes(seatNumber) ? "seat-red":"seat-grey"
+    
+    const seatStatus = init_color
 
     const seatClickHandler = (event, seatNumber) => {
         event.stopPropagation()
         const seatColor = document.querySelector(`.seat-${seatNumber}`).classList
+        seatColor.remove("seat-black")
         if (config.ocupados.includes(seatNumber)) {
             
         }
-
         else if (config.seatNumbers.includes(seatNumber)) {
-            const newMovieSeats = config.seatNumbers.filter((seat) => {
+            const newMovieSeats = config.seatNumbers.filter((seat   ) => {
                 return seat !== seatNumber
             })
             seatColor.remove("seat-black")
