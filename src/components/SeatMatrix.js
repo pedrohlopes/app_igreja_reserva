@@ -57,18 +57,18 @@ const SeatMatrix = () => {
 					<div className="row"><br /> </div>
 					<div className="row"><br /> </div>
 					<div className="row"><br /> </div>
-					{GenerateSeats([93, 94, 95, 96])}
+					{GenerateSeats([97,98,99,100])}
 				</div>
 				<div className="movie-column-4">
-					{GenerateSeats([97,98,99,100])}
-					{GenerateSeats([101,102,103,104,105])}
-					{GenerateSeats([106,107,108,109,110,111])}
-					{GenerateSeats([112,113,114,115,116,117])}
-					{GenerateSeats([118,119,120,121])}
-					{GenerateSeats([122,123,124,125,126,127])}
-					{GenerateSeats([128,129,130,131])}
-					{GenerateSeats([132, 133, 134, 135, 136, 137])}
-					{GenerateSeats([138,139,140,141,142])}
+					{GenerateSeats([97,98,99,100].map((item)=> item+4))}
+					{GenerateSeats([101,102,103,104,105].map((item)=> item+4))}
+					{GenerateSeats([106,107,108,109,110,111].map((item)=> item+4))}
+					{GenerateSeats([112,113,114,115,116,117].map((item)=> item+4))}
+					{GenerateSeats([118,119,120,121].map((item)=> item+4))}
+					{GenerateSeats([122,123,124,125,126,127].map((item)=> item+4))}
+					{GenerateSeats([128,129,130,131].map((item)=> item+4))}
+					{GenerateSeats([132, 133, 134, 135, 136, 137].map((item)=> item+4))}
+					{GenerateSeats([138,139,140,141,142].map((item)=> item+4))}
 				</div>
 			</div>
 		</div>
