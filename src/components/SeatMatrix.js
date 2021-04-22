@@ -18,11 +18,7 @@ const SeatMatrix = () => {
 	return (
 		<div className="movie-complex">
 
-			<div className="gh-logo">
-            	<a href="https://www.youtube.com/channel/UCc4B39usFjIrI4MqyTvl_fw" target="_blank">
-                	<img src="https://i.ibb.co/VYTBxp9/imbt-logo-black.png" alt="imbt-logo-black" border="0" width="80"></img>
-            	</a>
-        	</div>
+			
 
 
 			<p>Altar</p>
@@ -55,17 +51,22 @@ const SeatMatrix = () => {
 					{GenerateSeats([81,82,83,84])}
 					{GenerateSeats([85,86,87,88])}
 					{GenerateSeats([89,90,91,92])}
-					{GenerateSeats([93,94,95,96])}
+					{GenerateSeats([93, 94, 95, 96])}
+					<div className="row"> <br/></div>
+					<div className="row"><br/> </div>
+					<div className="row"><br/> </div>
+					{GenerateSeats([93, 94, 95, 96])}
 				</div>
 				<div className="movie-column-4">
 					{GenerateSeats([97,98,99,100])}
-					{GenerateSeats([101,102,103,104])}
-					{GenerateSeats([105,106,107,108])}
-					{GenerateSeats([109,110,111,112])}
-					{GenerateSeats([113,114,115,116])}
-					{GenerateSeats([117,118,119,120])}
-					{GenerateSeats([121,122,123,124])}
-					{GenerateSeats([125,126,127,128])}
+					{GenerateSeats([101,102,103,104,105])}
+					{GenerateSeats([106,107,108,109,110,111])}
+					{GenerateSeats([112,113,114,115,116,117])}
+					{GenerateSeats([118,119,120,121])}
+					{GenerateSeats([122,123,124,125,126,127])}
+					{GenerateSeats([128,129,130,131])}
+					{GenerateSeats([132, 133, 134, 135, 136, 137])}
+					{GenerateSeats([138,139,140,141,142])}
 				</div>
 			</div>
 		</div>

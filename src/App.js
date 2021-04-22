@@ -14,13 +14,15 @@ import MovieContext from './contexts/MovieContext'
 
 let start_config = require("./data/config.json")
 
-const configUrl = "https://imbt-app-server.rj.r.appspot.com/configAPI";
 
 
 // console.log(pre_config.ocupados)
 
 const App = () => {
 	const [config, EditConfig] = useState({
+		url: 'https://jsonbin.org/pedrohlopes/configAPI/Quinta',
+		dias: ["Quinta 22/04", "Domingo 25/04", "Terça 27/04"],
+		diaAtual: "Quinta 22/04",
 		totalSeats: 0,
 		ocupados: [],
 		seatNumbers:[]
@@ -30,7 +32,7 @@ const App = () => {
 	}, []);
 
 	const getConfigFetch = async () => {
-		const response = await fetch(configUrl);
+		const response = await fetch(config.url);
 		const jsonData = await response.json();
 		console.log(jsonData)
 		EditConfig(jsonData);
@@ -54,7 +56,8 @@ const App = () => {
 	return (
 		<div className="main container">
 			<MovieContext.Provider value={{ config, changeState: EditConfig }}>
-				{/* <IgrejaLogo /> */}
+				<IgrejaLogo/>
+				<MovieSelector />
 				<SeatMatrix />
 				<SeatAvailability />
 				<PriceCalculator />
