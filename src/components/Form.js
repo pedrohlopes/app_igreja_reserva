@@ -7,7 +7,10 @@ type FormData = {
     sobrenome: string;
 };
 
-
+function randomNumber() {
+    var result = Math.floor(Math.random() * 1000000000);
+    return result;
+}
 
 const postConfigFetch = async (data,url) => {
         console.log("teste" + data)
@@ -48,7 +51,8 @@ const Form = () => {
             nova_reserva = {
                 Responsavel: nome + ' ' + sobrenome,
                 Assentos: config.seatNumbers,
-                Data: format_number(d.getDate()) + '/' + format_number(d.getMonth() + 1) + '/' + format_number(d.getFullYear()) + '-' + format_number(d.getHours()) + ':' + format_number(d.getMinutes()) + ':' + format_number(d.getSeconds())
+                Data: format_number(d.getDate()) + '/' + format_number(d.getMonth() + 1) + '/' + format_number(d.getFullYear()) + '-' + format_number(d.getHours()) + ':' + format_number(d.getMinutes()) + ':' + format_number(d.getSeconds()),
+                numero: randomNumber()
             };
             new_object = {
                 ...config,
@@ -74,8 +78,8 @@ const Form = () => {
         <form onSubmit = {handleSubmit}>
 
             <ul className="form-style-1">
-                <li><input type="text" name="nome" className="field-divided" placeholder="Nome"  onChange = {(e) => setName(e.target.value)} value = {nome}/>
-                    <input type="text" name="sobrenome" className="field-divided" placeholder="Sobrenome" onChange = {(e) => setName2(e.target.value)} value = {sobrenome}/></li>
+                <li><input type="text" name="nome" className="field-divided" placeholder="Nome"  onChange = {(e) => setName(e.target.value)} value = {nome} required/>
+                    <input type="text" name="sobrenome" className="field-divided" placeholder="Sobrenome" onChange = {(e) => setName2(e.target.value)} value = {sobrenome} required/></li>
                 <li>
                     <input type="submit" value="Reservar!" className="submitButton" />
                 </li>

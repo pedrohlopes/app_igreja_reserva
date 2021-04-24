@@ -6,19 +6,46 @@ import SeatAvailability from "./components/SeatAvailability"
 import SeatMatrix from "./components/SeatMatrix"
 import PriceCalculator from "./components/PriceCalculator"
 import IgrejaLogo from './components/IgrejaLogo'
-import Form from './components/Form.js'
-import Table from './components/Table.js'
+import Form from './components/Form'
+import FormAdmin from './components/FormAdmin'
+import ActionSelector from './components/ActionSelector'
+import Table from './components/Table'
 
 import MovieContext from './contexts/MovieContext'
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-let start_config = require("./data/config.json")
+const App = () => {
+  return (
+    <Router>
+      <div>
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/admin">
+            <Admin />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+
 
 
 
 // console.log(pre_config.ocupados)
 
-const App = () => {
+function Home() {
 	const [config, EditConfig] = useState({
 		url: 'https://jsonbin.org/pedrohlopes/configAPI/Quinta',
 		dias: ["Quinta 22/04", "Domingo 25/04", "Terça 27/04"],
@@ -68,6 +95,42 @@ const App = () => {
 			</MovieContext.Provider>
 		</div>
 	)
+}
+
+function Admin() {
+	const [config, EditConfig] = useState({
+		url: 'https://jsonbin.org/pedrohlopes/configAPI/Quinta',
+		dias: ["Quinta 22/04", "Domingo 25/04", "Terça 27/04"],
+		diaAtual: "Quinta 22/04",
+		totalSeats: 142,
+		totalSelected: 0,
+		totalOcupados:0,
+		ocupados: [],
+		seatNumbers:[]
+	});
+	useEffect(() => {
+		getConfigFetch();
+	}, []);
+
+	const getConfigFetch = async () => {
+		const response = await fetch(config.url);
+		const jsonData = await response.json();
+		console.log(jsonData)
+		EditConfig(jsonData);
+	};
+
+	return (
+		<div className="main container">
+			<MovieContext.Provider value={{ config, changeState: EditConfig }}>
+				<ActionSelector />
+				<FormAdmin />
+			</MovieContext.Provider>
+		</div>
+	)
+}
+
+function Users() {
+  return <h2>Users</h2>;
 }
 
 export default App

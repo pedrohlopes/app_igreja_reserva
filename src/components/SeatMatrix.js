@@ -39,7 +39,7 @@ const SeatMatrix = () => {
 					{GenerateSeats([41, 42, 43, 44])}
 					{GenerateSeats([45, 46, 47, 48])}
 					{GenerateSeats([49, 50, 51, 52])}
-					{GenerateSeats([52, 54, 55, 56])}
+					{GenerateSeats([53, 54, 55, 56])}
 					{GenerateSeats([57, 58, 59, 60])}
 					{GenerateSeats([61, 62, 63, 64])}
 					{GenerateSeats([65,66,67,68])}
