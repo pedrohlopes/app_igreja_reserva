@@ -123,6 +123,7 @@ function Admin() {
 		<div className="main container">
 			<MovieContext.Provider value={{ config, changeState: EditConfig }}>
 				<ActionSelector />
+				<MovieSelector />
 				<FormAdmin />
 			</MovieContext.Provider>
 		</div>

@@ -37,6 +37,7 @@ const Header = () => {
 
 	return (
 		<div className="container" style={{ textAlign: "center" }}>
+			<h>Selecione o dia:</h>
 			<select className="movie-selector" onChange={movieSwitchHandler}>
 				{GenerateOptions()}
 			</select>
