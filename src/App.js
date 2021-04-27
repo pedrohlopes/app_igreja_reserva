@@ -47,13 +47,14 @@ const App = () => {
 
 function Home() {
 	const [config, EditConfig] = useState({
-		url: 'https://jsonbin.org/pedrohlopes/configAPI/Quinta',
+		url: 'https://jsonbin.org/pedrohlopes/configAPI/Terça',
 		dias: ["Quinta 22/04", "Domingo 25/04", "Terça 27/04"],
-		diaAtual: "Quinta 22/04",
+		diaAtual: "Terça 27/04",
 		totalSeats: 142,
 		totalSelected: 0,
 		totalOcupados:0,
 		ocupados: [],
+		bloqueados: [],
 		seatNumbers:[]
 	});
 	useEffect(() => {
@@ -99,13 +100,14 @@ function Home() {
 
 function Admin() {
 	const [config, EditConfig] = useState({
-		url: 'https://jsonbin.org/pedrohlopes/configAPI/Quinta',
+		url: 'https://jsonbin.org/pedrohlopes/configAPI/Terça',
 		dias: ["Quinta 22/04", "Domingo 25/04", "Terça 27/04"],
-		diaAtual: "Quinta 22/04",
+		diaAtual: "Terça 27/04",
 		totalSeats: 142,
 		totalSelected: 0,
 		totalOcupados:0,
 		ocupados: [],
+		bloqueados: [],
 		seatNumbers:[]
 	});
 	useEffect(() => {

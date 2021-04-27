@@ -41,9 +41,14 @@
 }
 .seat-black {
   background-color: black;
+  color: white;
 }
 .seat-red {
   background-color: red;
+}
+
+.seat-green {
+  background-color: lime;
 }
 
 .seat-undefined {
