@@ -9,7 +9,7 @@ const Seat = (props) => {
 
     const seatNumber = props.seatno
 
-    const init_color = config.bloqueados.includes(seatNumber) ? "seat-grey" : (config.ocupados.includes(seatNumber) ? "seat-red":"seat-green")
+    const init_color = config.ocupados.includes(seatNumber) ? "seat-red" : (config.bloqueados.includes(seatNumber) ? "seat-grey":"seat-green")
     
     const seatStatus = init_color
 
@@ -25,6 +25,7 @@ const Seat = (props) => {
                 return seat !== seatNumber
             })
             seatColor.remove("seat-black")
+            seatColor.remove("seat-grey")
             seatColor.add("seat-green")
             context.changeState({...config, seatNumbers: newMovieSeats, totalSelected: config.totalSelected-1 })
         } else {
